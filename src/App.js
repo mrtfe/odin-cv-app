@@ -3,17 +3,42 @@ import { GeneralInformation } from "./components/GeneralInformation";
 import { Education } from "./components/Education";
 import { Experience } from "./components/Experience";
 import { GeneralExample } from "./components/GeneralExample";
+import { useState } from "react";
 import "./App.css";
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      firstName: this.firstName,
-      lastName: this.lastName,
-      email: this.email,
-      phoneNumber: this.phoneNumber,
+    // const [cvDetails, setCvDetails] = useState(initialState);
+    const initialState = {
+      generalInformation: [
+        {
+          firstName: "",
+          lastName: "",
+          email: "",
+          phoneNumber: "",
+        },
+      ],
+      education: [
+        {
+          schoolName: "",
+          studyName: "",
+          dateFrom: "",
+          dateTo: "",
+        },
+      ],
+      experience: [
+        {
+          companyName: "",
+          positionTitle: "",
+          tasks: "",
+          from: "",
+          to: "",
+        },
+      ],
     };
+
+    const handleSubmit = () => {};
   }
 
   render() {
@@ -27,12 +52,7 @@ class App extends Component {
             <Experience />
           </div>
           <div>
-            <GeneralExample
-              firstName={this.state.firstName}
-              lastName={this.state.lastName}
-              email={this.state.email}
-              phoneNumber={this.state.phoneNumber}
-            />
+            <GeneralExample />
           </div>
         </div>
         <button
