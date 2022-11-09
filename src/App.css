@@ -4,5 +4,5 @@ body {
 
 .wrapper {
   display: flex;
-  gap: 30px;
+  gap: 100px;
 }
