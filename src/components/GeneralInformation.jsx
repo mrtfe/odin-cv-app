@@ -1,18 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/formStyle.css";
 
 export function GeneralInformation(props) {
+  const formState = {
+    firstName: "",
+    lastName: "",
+    email: "",
+    phoneNumber: "",
+  };
+
+  const [state, setState] = useState(formState);
+
+  const handleChange = (e) => {
+    e.preventDefault();
+    const inputName = e.target.name;
+    const inputData = e.target.value;
+    setState({ ...state, [inputName]: inputData });
+    console.log(state);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(state);
+    props.setGeneralInfo(state);
+  };
+
   return (
     <>
-      <form>
+      <form onSubmit={handleSubmit}>
         <h3>General Information</h3>
         <div>
           <input
             placeholder="First name"
             type="text"
             name="firstName"
-            // required
-            onChange={props.handleChange}
+            required
+            onChange={handleChange}
           ></input>
         </div>
         <div>
@@ -20,8 +43,8 @@ export function GeneralInformation(props) {
             placeholder="Last name"
             type="text"
             name="lastName"
-            // required
-            onChange={props.handleChange}
+            required
+            onChange={handleChange}
           ></input>
         </div>
         <div>
@@ -29,8 +52,8 @@ export function GeneralInformation(props) {
             placeholder="Email"
             type="email"
             name="email"
-            // required
-            onChange={props.handleChange}
+            required
+            onChange={handleChange}
           ></input>
         </div>
         <div>
@@ -38,11 +61,11 @@ export function GeneralInformation(props) {
             placeholder="Phone number"
             type="number"
             name="phoneNumber"
-            // required
-            onChange={props.handleChange}
+            required
+            onChange={handleChange}
           ></input>
         </div>
-        <button className="btn-submit" onClick={(e) => props.handleChange}>
+        <button type="submit" className="btn-submit" onClick={handleSubmit}>
           Submit
         </button>
       </form>

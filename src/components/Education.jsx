@@ -1,15 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import "../styles/formStyle.css";
 
 export function Education(props) {
-  // const [eduState, setEduState] = useState([
-  //   {
-  //     schoolName: "Codeacademy",
-  //     studyName: "Front-end",
-  //     dateFrom: "2022-05",
-  //     dateTo: "2022-12",
-  //   },
-  // ]);
   return (
     <>
       <form>

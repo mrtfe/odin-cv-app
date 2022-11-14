@@ -48,21 +48,6 @@ function App() {
   const [education, setEducation] = useState(educationState);
   const [experience, setExperience] = useState(experienceState);
 
-  const handleGeneralInfoChange = (e) => {
-    e.preventDefault();
-    // const newGeneralInfo = {
-    //   firstName: e.target.value,
-    //   lastName: e.target.value,
-    //   email: e.target.value,
-    //   phoneNumber: e.target.value,
-    // };
-    // setGeneralInfo({ ...generalInfo, newGeneralInfo });
-    const inputName = e.target.name;
-    const inputData = e.target.value;
-    setGeneralInfo({ ...generalInfo, [inputName]: inputData });
-    console.log(generalInfo);
-  };
-
   const handleEducationChange = (e) => {
     e.preventDefault();
     const inputName = e.target.name;
@@ -79,17 +64,12 @@ function App() {
     console.log(experience);
   };
 
-  // console.log(education);
-
   return (
     <>
       <h1>CV GENERATOR</h1>
       <div className="wrapper">
         <div>
-          <GeneralInformation
-            // initialState={generalInfoState}
-            handleChange={handleGeneralInfoChange}
-          />
+          <GeneralInformation setGeneralInfo={setGeneralInfo} />
           <Education handleChange={handleEducationChange} />
           <Experience handleChange={handleExperienceChange} />
         </div>
