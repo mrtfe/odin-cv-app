@@ -1,14 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import "../styles/formStyle.css";
 
 export function GeneralInformation(props) {
-  const [generalState, setGeneralState] = useState({
-    firstName: "Martynas",
-    lastName: "Fetingis",
-    email: "martynas.f@gmail.com",
-    phoneNumber: "112",
-  });
-
   return (
     <>
       <form>
@@ -49,7 +42,9 @@ export function GeneralInformation(props) {
             onChange={props.handleChange}
           ></input>
         </div>
-        <button className="btn-submit">Submit</button>
+        <button className="btn-submit" onChange={props.handleChange}>
+          Submit
+        </button>
       </form>
     </>
   );

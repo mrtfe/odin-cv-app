@@ -2,18 +2,24 @@ import React, { useState } from "react";
 import { GeneralInformation } from "./components/GeneralInformation";
 import { Education } from "./components/Education";
 import { Experience } from "./components/Experience";
-import { GeneralExample } from "./components/GeneralExample";
+import { Example } from "./components/Example";
 import "./App.css";
 
 function App() {
   const generalInfoState = {
-    firstName: "Martynas",
-    lastName: "Fetingis",
-    email: "martynas.f@gmail.com",
-    phoneNumber: "112",
+    firstName: "",
+    lastName: "",
+    email: "",
+    phoneNumber: "",
   };
 
   const educationState = [
+    {
+      schoolName: "Codeacademy",
+      studyName: "Front-end",
+      dateFrom: "2022-05",
+      dateTo: "2022-12",
+    },
     {
       schoolName: "Codeacademy",
       studyName: "Front-end",
@@ -42,24 +48,33 @@ function App() {
   const [education, setEducation] = useState(educationState);
   const [experience, setExperience] = useState(experienceState);
 
+  console.log(education);
+
   const handleGeneralInfoChange = (e) => {
     e.preventDefault();
     const inputName = e.target.name;
     const inputData = e.target.value;
-    console.log({ inputName: inputName, inputData: inputData });
-    // setGeneralInfo({ ...generalInfoState, inputName: inputData });
+    // console.log({ inputName: inputName, inputData: inputData });
+    setGeneralInfo({ ...generalInfo, [inputName]: inputData });
+    console.log(generalInfo);
   };
+
   const handleEducationChange = (e) => {
     e.preventDefault();
     const inputName = e.target.name;
     const inputData = e.target.value;
-    console.log({ inputName: inputName, inputData: inputData });
+    // console.log({ inputName: inputName, inputData: inputData });
+    setEducation({ ...educationState, [inputName]: inputData });
+    console.log(education);
   };
+
   const handleExperienceChange = (e) => {
     e.preventDefault();
     const inputName = e.target.name;
     const inputData = e.target.value;
-    console.log({ inputName: inputName, inputData: inputData });
+    // console.log({ inputName: inputName, inputData: inputData });
+    setExperience({ ...experienceState, [inputName]: inputData });
+    console.log(experience);
   };
 
   return (
@@ -68,27 +83,28 @@ function App() {
       <div className="wrapper">
         <div>
           <GeneralInformation
-            initialState={generalInfoState}
+            // initialState={generalInfoState}
             handleChange={handleGeneralInfoChange}
           />
           <Education handleChange={handleEducationChange} />
           <Experience handleChange={handleExperienceChange} />
         </div>
         <div>
-          <GeneralExample
-            firstName={generalInfoState.firstName}
-            lastName={generalInfoState.lastName}
-            email={generalInfoState.email}
-            phoneNumber={generalInfoState.phoneNumber}
-            schoolName={educationState[0].schoolName}
-            studyName={educationState[0].studyName}
-            dateFrom={educationState[0].dateFrom}
-            dateTo={educationState[0].dateTo}
+          <Example
+            firstName={generalInfo.firstName}
+            lastName={generalInfo.lastName}
+            email={generalInfo.email}
+            phoneNumber={generalInfo.phoneNumber}
+            schoolName={education.schoolName}
+            studyName={education.studyName}
+            dateFrom={education.dateFrom}
+            dateTo={education.dateTo}
             companyName={experienceState[0].companyName}
             positionTitle={experienceState[0].positionTitle}
             tasks={experienceState[0].tasks}
             from={experienceState[0].from}
             to={experienceState[0].to}
+            education={education}
           />
         </div>
       </div>

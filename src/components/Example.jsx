@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/exampleStyle.css";
 
-export function GeneralExample(props) {
+export function Example(props) {
   return (
     <div className="example-wrapper">
       <div className="general-info">
@@ -13,12 +13,16 @@ export function GeneralExample(props) {
       </div>
       <div className="education-info">
         <h3>Education</h3>
-        <p>School name: {props.schoolName}</p>
-        <p>Study name: {props.studyName}</p>
-        <p>Date from: {props.dateFrom}</p>
-        <p>Date to: {props.dateTo}</p>
+        {props.education.map((school) => {
+          <div className="card" key="card">
+            <p>School name: {school.schoolName}</p>
+            <p>Study name: {school.studyName}</p>
+            <p>Date from: {school.dateFrom}</p>
+            <p>Date to: {school.dateTo}</p>
+          </div>;
+        })}
       </div>
-      <div className="education-info">
+      <div className="experience-info">
         <h3>Experience</h3>
         <p>Company name: {props.companyName}</p>
         <p>Role: {props.positionTitle}</p>
