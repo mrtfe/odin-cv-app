@@ -6,41 +6,60 @@ import { GeneralExample } from "./components/GeneralExample";
 import "./App.css";
 
 function App() {
-  const initialState = {
-    generalInformation: [
-      {
-        firstName: "Martynas",
-        lastName: "Fetingis",
-        email: "martynas.f@gmail.com",
-        phoneNumber: "112",
-      },
-    ],
-    education: [
-      {
-        schoolName: "Codeacademy",
-        studyName: "Front-end",
-        dateFrom: "2022-05",
-        dateTo: "2022-12",
-      },
-    ],
-    experience: [
-      {
-        companyName: "Google",
-        positionTitle: "CEO",
-        tasks: "Run google",
-        from: "2010",
-        to: "2020",
-      },
-    ],
+  const generalInfoState = {
+    firstName: "Martynas",
+    lastName: "Fetingis",
+    email: "martynas.f@gmail.com",
+    phoneNumber: "112",
   };
 
-  const [cvDetails, setCvDetails] = useState(initialState);
+  const educationState = [
+    {
+      schoolName: "Codeacademy",
+      studyName: "Front-end",
+      dateFrom: "2022-05",
+      dateTo: "2022-12",
+    },
+  ];
+  const experienceState = [
+    {
+      companyName: "Google",
+      positionTitle: "CEO",
+      tasks: "Run google",
+      from: "2010",
+      to: "2020",
+    },
+    {
+      companyName: "Google",
+      positionTitle: "CEO",
+      tasks: "Run google",
+      from: "2010",
+      to: "2020",
+    },
+  ];
 
-  const handleSubmit = (e) => {
+  const [generalInfo, setGeneralInfo] = useState(generalInfoState);
+  const [education, setEducation] = useState(educationState);
+  const [experience, setExperience] = useState(experienceState);
+
+  const handleGeneralInfoChange = (e) => {
     e.preventDefault();
+    const inputName = e.target.name;
     const inputData = e.target.value;
-    console.log(inputData);
-    // setCvDetails();
+    console.log({ inputName: inputName, inputData: inputData });
+    // setGeneralInfo({ ...generalInfoState, inputName: inputData });
+  };
+  const handleEducationChange = (e) => {
+    e.preventDefault();
+    const inputName = e.target.name;
+    const inputData = e.target.value;
+    console.log({ inputName: inputName, inputData: inputData });
+  };
+  const handleExperienceChange = (e) => {
+    e.preventDefault();
+    const inputName = e.target.name;
+    const inputData = e.target.value;
+    console.log({ inputName: inputName, inputData: inputData });
   };
 
   return (
@@ -49,29 +68,27 @@ function App() {
       <div className="wrapper">
         <div>
           <GeneralInformation
-            initialState={initialState}
-            // cvDetails={cvDetails}
-            // setCvDetails={setCvDetails}
-            handleSubmit={handleSubmit}
+            initialState={generalInfoState}
+            handleChange={handleGeneralInfoChange}
           />
-          <Education />
-          <Experience />
+          <Education handleChange={handleEducationChange} />
+          <Experience handleChange={handleExperienceChange} />
         </div>
         <div>
           <GeneralExample
-            firstName={initialState.generalInformation[0].firstName}
-            lastName={initialState.generalInformation[0].lastName}
-            email={initialState.generalInformation[0].email}
-            phoneNumber={initialState.generalInformation[0].phoneNumber}
-            schoolName={initialState.education[0].schoolName}
-            studyName={initialState.education[0].studyName}
-            dateFrom={initialState.education[0].dateFrom}
-            dateTo={initialState.education[0].dateTo}
-            companyName={initialState.experience[0].companyName}
-            positionTitle={initialState.experience[0].positionTitle}
-            tasks={initialState.experience[0].tasks}
-            from={initialState.experience[0].from}
-            to={initialState.experience[0].to}
+            firstName={generalInfoState.firstName}
+            lastName={generalInfoState.lastName}
+            email={generalInfoState.email}
+            phoneNumber={generalInfoState.phoneNumber}
+            schoolName={educationState[0].schoolName}
+            studyName={educationState[0].studyName}
+            dateFrom={educationState[0].dateFrom}
+            dateTo={educationState[0].dateTo}
+            companyName={experienceState[0].companyName}
+            positionTitle={experienceState[0].positionTitle}
+            tasks={experienceState[0].tasks}
+            from={experienceState[0].from}
+            to={experienceState[0].to}
           />
         </div>
       </div>

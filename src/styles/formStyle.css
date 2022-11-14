@@ -27,6 +27,7 @@ form div {
   color: #fff;
   cursor: pointer;
   padding: 5px;
+  max-width: 190px;
 }
 .btn-edit {
   appearance: button;

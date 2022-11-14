@@ -21,9 +21,9 @@ export function GeneralExample(props) {
       <div className="education-info">
         <h3>Experience</h3>
         <p>Company name: {props.companyName}</p>
-        <p>Study name: {props.studyName}</p>
-        <p>Date from: {props.dateFrom}</p>
-        <p>Date to: {props.dateTo}</p>
+        <p>Role: {props.positionTitle}</p>
+        <p>Date from: {props.from}</p>
+        <p>Date to: {props.to}</p>
       </div>
     </div>
   );

@@ -1,36 +1,61 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/formStyle.css";
 
-export function Experience() {
+export function Experience(props) {
+  const [expState, setExpState] = useState([
+    {
+      companyName: "Google",
+      positionTitle: "CEO",
+      tasks: "Run google",
+      from: "2010",
+      to: "2020",
+    },
+  ]);
   return (
     <>
       <form className="form experience">
         <h3>Experience</h3>
         <div>
-          <input placeholder="Company name" type="text"></input>
-          <button className="btn-submit">Submit</button>
-          <button className="btn-edit">Edit</button>
+          <input
+            name="companyName"
+            placeholder="Company name"
+            type="text"
+            onChange={props.handleChange}
+          ></input>
         </div>
         <div>
-          <input placeholder="Position title" type="text"></input>
-          <button className="btn-submit">Submit</button>
-          <button className="btn-edit">Edit</button>
+          <input
+            name="positionTitle"
+            placeholder="Position title"
+            type="text"
+            onChange={props.handleChange}
+          ></input>
         </div>
         <div>
-          <input placeholder="Main tasks of your jobs" type="text"></input>
-          <button className="btn-submit">Submit</button>
-          <button className="btn-edit">Edit</button>
+          <input
+            name="tasks"
+            placeholder="Main tasks of your jobs"
+            type="text"
+            onChange={props.handleChange}
+          ></input>
         </div>
         <div>
-          <input placeholder="From" type="text"></input>
-          <button className="btn-submit">Submit</button>
-          <button className="btn-edit">Edit</button>
+          <input
+            name="from"
+            placeholder="From"
+            type="text"
+            onChange={props.handleChange}
+          ></input>
         </div>
         <div>
-          <input placeholder="To" type="text"></input>
-          <button className="btn-submit">Submit</button>
-          <button className="btn-edit">Edit</button>
+          <input
+            name="to"
+            placeholder="To"
+            type="text"
+            onChange={props.handleChange}
+          ></input>
         </div>
+        <button className="btn-submit">Submit</button>
       </form>
     </>
   );

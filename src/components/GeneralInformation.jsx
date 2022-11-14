@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/formStyle.css";
 
 export function GeneralInformation(props) {
+  const [generalState, setGeneralState] = useState({
+    firstName: "Martynas",
+    lastName: "Fetingis",
+    email: "martynas.f@gmail.com",
+    phoneNumber: "112",
+  });
+
   return (
     <>
       <form>
@@ -10,40 +17,39 @@ export function GeneralInformation(props) {
           <input
             placeholder="First name"
             type="text"
-            id="firstName"
+            name="firstName"
             // required
-            onChange={props.handleSubmit}
+            onChange={props.handleChange}
           ></input>
-          <button className="btn-submit">Submit</button>
-          <button className="btn-edit">Edit</button>
         </div>
         <div>
           <input
             placeholder="Last name"
             type="text"
+            name="lastName"
             // required
+            onChange={props.handleChange}
           ></input>
-          <button className="btn-submit">Submit</button>
-          <button className="btn-edit">Edit</button>
         </div>
         <div>
           <input
             placeholder="Email"
             type="email"
+            name="email"
             // required
+            onChange={props.handleChange}
           ></input>
-          <button className="btn-submit">Submit</button>
-          <button className="btn-edit">Edit</button>
         </div>
         <div>
           <input
             placeholder="Phone number"
             type="number"
+            name="phoneNumber"
             // required
+            onChange={props.handleChange}
           ></input>
-          <button className="btn-submit">Submit</button>
-          <button className="btn-edit">Edit</button>
         </div>
+        <button className="btn-submit">Submit</button>
       </form>
     </>
   );
