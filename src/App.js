@@ -21,7 +21,7 @@ function App() {
       dateTo: "2022-12",
     },
     {
-      schoolName: "Codeacademy",
+      schoolName: "Odin",
       studyName: "Front-end",
       dateFrom: "2022-05",
       dateTo: "2022-12",
@@ -36,7 +36,7 @@ function App() {
       to: "2020",
     },
     {
-      companyName: "Google",
+      companyName: "Facebook",
       positionTitle: "CEO",
       tasks: "Run google",
       from: "2010",
@@ -50,6 +50,13 @@ function App() {
 
   const handleGeneralInfoChange = (e) => {
     e.preventDefault();
+    // const newGeneralInfo = {
+    //   firstName: e.target.value,
+    //   lastName: e.target.value,
+    //   email: e.target.value,
+    //   phoneNumber: e.target.value,
+    // };
+    // setGeneralInfo({ ...generalInfo, newGeneralInfo });
     const inputName = e.target.name;
     const inputData = e.target.value;
     setGeneralInfo({ ...generalInfo, [inputName]: inputData });
@@ -60,7 +67,7 @@ function App() {
     e.preventDefault();
     const inputName = e.target.name;
     const inputData = e.target.value;
-    setEducation({ ...educationState, [inputName]: inputData });
+    setEducation({ ...education, [inputName]: inputData });
     console.log(education);
   };
 
@@ -72,7 +79,7 @@ function App() {
     console.log(experience);
   };
 
-  console.log(education);
+  // console.log(education);
 
   return (
     <>
@@ -92,10 +99,10 @@ function App() {
             lastName={generalInfo.lastName}
             email={generalInfo.email}
             phoneNumber={generalInfo.phoneNumber}
-            schoolName={education.schoolName}
-            studyName={education.studyName}
-            dateFrom={education.dateFrom}
-            dateTo={education.dateTo}
+            schoolName={education[0].schoolName}
+            studyName={education[0].studyName}
+            dateFrom={education[0].dateFrom}
+            dateTo={education[0].dateTo}
             companyName={experienceState[0].companyName}
             positionTitle={experienceState[0].positionTitle}
             tasks={experienceState[0].tasks}

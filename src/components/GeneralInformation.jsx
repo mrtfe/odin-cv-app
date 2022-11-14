@@ -42,7 +42,7 @@ export function GeneralInformation(props) {
             onChange={props.handleChange}
           ></input>
         </div>
-        <button className="btn-submit" onChange={props.handleChange}>
+        <button className="btn-submit" onClick={(e) => props.handleChange}>
           Submit
         </button>
       </form>
