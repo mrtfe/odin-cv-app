@@ -2,6 +2,7 @@ import React from "react";
 import "../styles/exampleStyle.css";
 
 export function Example(props) {
+  console.log("props.education:" + props.education);
   return (
     <div className="example-wrapper">
       <div className="general-info">

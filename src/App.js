@@ -48,13 +48,10 @@ function App() {
   const [education, setEducation] = useState(educationState);
   const [experience, setExperience] = useState(experienceState);
 
-  console.log(education);
-
   const handleGeneralInfoChange = (e) => {
     e.preventDefault();
     const inputName = e.target.name;
     const inputData = e.target.value;
-    // console.log({ inputName: inputName, inputData: inputData });
     setGeneralInfo({ ...generalInfo, [inputName]: inputData });
     console.log(generalInfo);
   };
@@ -63,7 +60,6 @@ function App() {
     e.preventDefault();
     const inputName = e.target.name;
     const inputData = e.target.value;
-    // console.log({ inputName: inputName, inputData: inputData });
     setEducation({ ...educationState, [inputName]: inputData });
     console.log(education);
   };
@@ -72,10 +68,11 @@ function App() {
     e.preventDefault();
     const inputName = e.target.name;
     const inputData = e.target.value;
-    // console.log({ inputName: inputName, inputData: inputData });
     setExperience({ ...experienceState, [inputName]: inputData });
     console.log(experience);
   };
+
+  console.log(education);
 
   return (
     <>
@@ -104,7 +101,7 @@ function App() {
             tasks={experienceState[0].tasks}
             from={experienceState[0].from}
             to={experienceState[0].to}
-            education={education}
+            education={experienceState}
           />
         </div>
       </div>
