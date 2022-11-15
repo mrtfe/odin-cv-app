@@ -2,14 +2,12 @@ import React, { useState } from "react";
 import "../styles/formStyle.css";
 
 export function Education(props) {
-  const educationState = [
-    {
-      schoolName: "",
-      studyName: "",
-      dateFrom: "",
-      dateTo: "",
-    },
-  ];
+  const educationState = {
+    schoolName: "",
+    studyName: "",
+    dateFrom: "",
+    dateTo: "",
+  };
   const [state, setState] = useState(educationState);
 
   const handleChange = (e) => {
@@ -21,8 +19,8 @@ export function Education(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("education form submitted");
-    props.setEducation(state);
+    props.setEducation([...props.education, state]);
+    console.log(props.education);
   };
 
   return (

@@ -13,24 +13,24 @@ function App() {
     phoneNumber: "",
   };
 
-  const educationState = {
-    schoolName: "",
-    studyName: "",
-    dateFrom: "",
-    dateTo: "",
-  };
+  // const educationState = {
+  //   schoolName: "",
+  //   studyName: "",
+  //   dateFrom: "",
+  //   dateTo: "",
+  // };
 
-  const experienceState = {
-    companyName: "",
-    positionTitle: "",
-    tasks: "",
-    from: "",
-    to: "",
-  };
+  // const experienceState = {
+  //   companyName: "",
+  //   positionTitle: "",
+  //   tasks: "",
+  //   from: "",
+  //   to: "",
+  // };
 
   const [generalInfo, setGeneralInfo] = useState(generalInfoState);
-  const [education, setEducation] = useState(educationState);
-  const [experience, setExperience] = useState(experienceState);
+  const [education, setEducation] = useState([]);
+  const [experience, setExperience] = useState([]);
 
   return (
     <>

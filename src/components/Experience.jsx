@@ -23,7 +23,7 @@ export function Experience(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("experience form submitted");
-    props.setExperience(state);
+    props.setExperience([...props.experience, state]);
   };
 
   return (
