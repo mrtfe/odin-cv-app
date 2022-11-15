@@ -17,14 +17,12 @@ export function Education(props) {
     const inputName = e.target.name;
     const inputData = e.target.value;
     setState({ ...state, [inputName]: inputData });
-    // console.log(state);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("education form submitted");
     props.setEducation(state);
-    // console.log(props.education.schoolName);
   };
 
   return (
