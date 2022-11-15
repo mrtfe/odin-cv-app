@@ -45,15 +45,7 @@ function App() {
           <Example
             generalInfo={generalInfo}
             education={education}
-            schoolName={education.schoolName}
-            studyName={education.studyName}
-            dateFrom={education.dateFrom}
-            dateTo={education.dateTo}
-            companyName={experience.companyName}
-            positionTitle={experience.positionTitle}
-            tasks={experience.tasks}
-            from={experience.from}
-            to={experience.to}
+            experience={experience}
           />
         </div>
       </div>
