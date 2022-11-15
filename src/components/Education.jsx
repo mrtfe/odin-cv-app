@@ -1,17 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/formStyle.css";
 
 export function Education(props) {
+  const educationState = [
+    {
+      schoolName: "",
+      studyName: "",
+      dateFrom: "",
+      dateTo: "",
+    },
+  ];
+  const [state, setState] = useState(educationState);
+
+  const handleChange = (e) => {
+    e.preventDefault();
+    const inputName = e.target.name;
+    const inputData = e.target.value;
+    setState({ ...state, [inputName]: inputData });
+    // console.log(state);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("education form submitted");
+    props.setEducation(state);
+    // console.log(props.education.schoolName);
+  };
+
   return (
     <>
-      <form>
+      <form onSubmit={handleSubmit}>
         <h3>Education</h3>
         <div>
           <input
             name="schoolName"
             placeholder="School name"
             type="text"
-            onChange={props.handleChange}
+            onChange={handleChange}
           ></input>
         </div>
         <div>
@@ -19,7 +44,7 @@ export function Education(props) {
             name="studyName"
             placeholder="Title of study"
             type="text"
-            onChange={props.handleChange}
+            onChange={handleChange}
           ></input>
         </div>
         <div>
@@ -27,7 +52,7 @@ export function Education(props) {
             name="dateFrom"
             placeholder="Date of study / From"
             type="text"
-            onChange={props.handleChange}
+            onChange={handleChange}
           ></input>
         </div>
         <div>
@@ -35,10 +60,12 @@ export function Education(props) {
             name="dateTo"
             placeholder="Date of study / To"
             type="text"
-            onChange={props.handleChange}
+            onChange={handleChange}
           ></input>
         </div>
-        <button className="btn-submit">Submit</button>
+        <button type="submit" className="btn-submit">
+          Submit
+        </button>
       </form>
     </>
   );

@@ -13,56 +13,24 @@ function App() {
     phoneNumber: "",
   };
 
-  const educationState = [
-    {
-      schoolName: "Codeacademy",
-      studyName: "Front-end",
-      dateFrom: "2022-05",
-      dateTo: "2022-12",
-    },
-    {
-      schoolName: "Odin",
-      studyName: "Front-end",
-      dateFrom: "2022-05",
-      dateTo: "2022-12",
-    },
-  ];
-  const experienceState = [
-    {
-      companyName: "Google",
-      positionTitle: "CEO",
-      tasks: "Run google",
-      from: "2010",
-      to: "2020",
-    },
-    {
-      companyName: "Facebook",
-      positionTitle: "CEO",
-      tasks: "Run google",
-      from: "2010",
-      to: "2020",
-    },
-  ];
+  const educationState = {
+    schoolName: "",
+    studyName: "",
+    dateFrom: "",
+    dateTo: "",
+  };
+
+  const experienceState = {
+    companyName: "",
+    positionTitle: "",
+    tasks: "",
+    from: "",
+    to: "",
+  };
 
   const [generalInfo, setGeneralInfo] = useState(generalInfoState);
   const [education, setEducation] = useState(educationState);
   const [experience, setExperience] = useState(experienceState);
-
-  const handleEducationChange = (e) => {
-    e.preventDefault();
-    const inputName = e.target.name;
-    const inputData = e.target.value;
-    setEducation({ ...education, [inputName]: inputData });
-    console.log(education);
-  };
-
-  const handleExperienceChange = (e) => {
-    e.preventDefault();
-    const inputName = e.target.name;
-    const inputData = e.target.value;
-    setExperience({ ...experienceState, [inputName]: inputData });
-    console.log(experience);
-  };
 
   return (
     <>
@@ -70,25 +38,22 @@ function App() {
       <div className="wrapper">
         <div>
           <GeneralInformation setGeneralInfo={setGeneralInfo} />
-          <Education handleChange={handleEducationChange} />
-          <Experience handleChange={handleExperienceChange} />
+          <Education setEducation={setEducation} education={education} />
+          <Experience setExperience={setExperience} experience={experience} />
         </div>
         <div>
           <Example
-            firstName={generalInfo.firstName}
-            lastName={generalInfo.lastName}
-            email={generalInfo.email}
-            phoneNumber={generalInfo.phoneNumber}
-            schoolName={education[0].schoolName}
-            studyName={education[0].studyName}
-            dateFrom={education[0].dateFrom}
-            dateTo={education[0].dateTo}
-            companyName={experienceState[0].companyName}
-            positionTitle={experienceState[0].positionTitle}
-            tasks={experienceState[0].tasks}
-            from={experienceState[0].from}
-            to={experienceState[0].to}
-            education={experienceState}
+            generalInfo={generalInfo}
+            education={education}
+            schoolName={education.schoolName}
+            studyName={education.studyName}
+            dateFrom={education.dateFrom}
+            dateTo={education.dateTo}
+            companyName={experience.companyName}
+            positionTitle={experience.positionTitle}
+            tasks={experience.tasks}
+            from={experience.from}
+            to={experience.to}
           />
         </div>
       </div>

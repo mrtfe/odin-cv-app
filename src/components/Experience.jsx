@@ -2,25 +2,42 @@ import React, { useState } from "react";
 import "../styles/formStyle.css";
 
 export function Experience(props) {
-  const [expState, setExpState] = useState([
+  const expState = [
     {
-      companyName: "Google",
-      positionTitle: "CEO",
-      tasks: "Run google",
-      from: "2010",
-      to: "2020",
+      companyName: "",
+      positionTitle: "",
+      tasks: " ",
+      from: "",
+      to: "",
     },
-  ]);
+  ];
+  const [state, setState] = useState(expState);
+
+  const handleChange = (e) => {
+    e.preventDefault();
+    const inputName = e.target.name;
+    const inputData = e.target.value;
+    setState({ ...state, [inputName]: inputData });
+    console.log(state);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("experience form submitted");
+    props.setExperience(state);
+    console.log(props.experience);
+  };
+
   return (
     <>
-      <form className="form experience">
+      <form onSubmit={handleSubmit} className="form experience">
         <h3>Experience</h3>
         <div>
           <input
             name="companyName"
             placeholder="Company name"
             type="text"
-            onChange={props.handleChange}
+            onChange={handleChange}
           ></input>
         </div>
         <div>
@@ -28,7 +45,7 @@ export function Experience(props) {
             name="positionTitle"
             placeholder="Position title"
             type="text"
-            onChange={props.handleChange}
+            onChange={handleChange}
           ></input>
         </div>
         <div>
@@ -36,7 +53,7 @@ export function Experience(props) {
             name="tasks"
             placeholder="Main tasks of your jobs"
             type="text"
-            onChange={props.handleChange}
+            onChange={handleChange}
           ></input>
         </div>
         <div>
@@ -44,7 +61,7 @@ export function Experience(props) {
             name="from"
             placeholder="From"
             type="text"
-            onChange={props.handleChange}
+            onChange={handleChange}
           ></input>
         </div>
         <div>
@@ -52,10 +69,12 @@ export function Experience(props) {
             name="to"
             placeholder="To"
             type="text"
-            onChange={props.handleChange}
+            onChange={handleChange}
           ></input>
         </div>
-        <button className="btn-submit">Submit</button>
+        <button type="submit" className="btn-submit">
+          Submit
+        </button>
       </form>
     </>
   );
