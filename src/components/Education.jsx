@@ -3,12 +3,18 @@ import "../styles/formStyle.css";
 
 export function Education(props) {
   const educationState = {
+    id: "",
     schoolName: "",
     studyName: "",
     dateFrom: "",
     dateTo: "",
   };
   const [state, setState] = useState(educationState);
+
+  const RandomIdGenerator = () => {
+    console.log("random id generated");
+    return Math.floor(Math.random() * 1000000000);
+  };
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -20,7 +26,7 @@ export function Education(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     props.setEducation([...props.education, state]);
-    console.log(props.education);
+    // console.log(props.education);
   };
 
   return (

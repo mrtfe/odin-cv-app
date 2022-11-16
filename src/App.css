@@ -4,5 +4,21 @@ body {
 
 .wrapper {
   display: flex;
-  gap: 100px;
+  gap: 30px;
+}
+
+.content-left {
+  width: 200px;
+  border: 2px solid #36a9ae;
+
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.content-right {
+  width: 750px;
+  border: 2px solid #36a9ae;
+  border-radius: 5px;
+  margin-left: 30px;
+  padding: 20px;
 }

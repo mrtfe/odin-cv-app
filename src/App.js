@@ -13,21 +13,6 @@ function App() {
     phoneNumber: "",
   };
 
-  // const educationState = {
-  //   schoolName: "",
-  //   studyName: "",
-  //   dateFrom: "",
-  //   dateTo: "",
-  // };
-
-  // const experienceState = {
-  //   companyName: "",
-  //   positionTitle: "",
-  //   tasks: "",
-  //   from: "",
-  //   to: "",
-  // };
-
   const [generalInfo, setGeneralInfo] = useState(generalInfoState);
   const [education, setEducation] = useState([]);
   const [experience, setExperience] = useState([]);
@@ -36,16 +21,20 @@ function App() {
     <>
       <h1>CV GENERATOR</h1>
       <div className="wrapper">
-        <div>
-          <GeneralInformation setGeneralInfo={setGeneralInfo} />
-          <Education setEducation={setEducation} education={education} />
-          <Experience setExperience={setExperience} experience={experience} />
+        <div className="content-left">
+          <div>
+            <GeneralInformation setGeneralInfo={setGeneralInfo} />
+            <Education setEducation={setEducation} education={education} />
+            <Experience setExperience={setExperience} experience={experience} />
+          </div>
         </div>
-        <div>
+        <div className="content-right">
           <Example
             generalInfo={generalInfo}
             education={education}
+            setEducation={setEducation}
             experience={experience}
+            setExperience={setExperience}
           />
         </div>
       </div>

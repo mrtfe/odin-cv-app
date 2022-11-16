@@ -1,29 +1,52 @@
 .example-wrapper {
   display: flex;
+  gap: 30px;
   flex-direction: column;
-  gap: 10px;
-}
-
-.card {
-  border: 1px solid rgb(126, 126, 126);
-  border-radius: 5px;
-  background-color: rgb(209, 207, 207);
-  padding: 5px;
-  max-width: 250px;
 }
 
 .del-btn {
-  background-color: red;
+  background-color: rgb(126, 126, 126);
   color: white;
   border: none;
   padding: 5px;
   border-radius: 3px;
   font-weight: 700;
-  margin-left: 50%;
-  margin-bottom: 5px;
+  height: 50%;
 }
 
 .right-side {
   display: flex;
   gap: 30px;
+}
+
+.first-name {
+  display: flex;
+  font-size: 50px;
+  font-weight: 700;
+  color: #36a9ae;
+  gap: 10px;
+}
+
+.gen-info-secondary {
+  display: flex;
+}
+.gen-label {
+  width: 150px;
+}
+
+.info {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.experience-info p {
+  max-width: 100px;
+  flex-wrap: wrap;
 }
