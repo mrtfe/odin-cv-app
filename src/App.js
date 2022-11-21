@@ -7,7 +7,6 @@ import "./App.css";
 
 function App() {
   const generalInfoState = {
-    id: "",
     firstName: "",
     lastName: "",
     email: "",

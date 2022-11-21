@@ -2,9 +2,10 @@ import React from "react";
 import "../styles/exampleStyle.css";
 
 export function Example(props) {
-  const handleDelete = (eduItem) => {
-    console.log(eduItem.id);
+  const handleEducationDelete = (e) => {
+    props.setEducation(props.education.filter((item) => item.id !== e.id));
   };
+
   return (
     <div className="example-wrapper">
       <div className="general-info">
@@ -34,7 +35,10 @@ export function Example(props) {
               <p>{eduItem.schoolName} | </p>
               <p>{eduItem.dateFrom} - </p>
               <p>{eduItem.dateTo}</p>
-              <button className="del-btn" onClick={() => handleDelete(eduItem)}>
+              <button
+                className="del-btn"
+                onClick={() => handleEducationDelete(eduItem)}
+              >
                 Delete
               </button>
             </div>
@@ -55,7 +59,11 @@ export function Example(props) {
               <p>{expItem.tasks} |</p>
               <p>{expItem.from} -</p>
               <p>{expItem.to}</p>
-              <button className="del-btn" onClick={() => handleDelete(expItem)}>
+
+              <button
+                className="del-btn"
+                onClick={() => console.log("hello world")}
+              >
                 Delete
               </button>
             </div>

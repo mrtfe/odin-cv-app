@@ -25,9 +25,9 @@ export function Education(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     const id = randomIdGenerator();
-    console.log("new id:" + id);
+    // console.log("new id:" + id);
     props.setEducation([...props.education, { ...state, id }]);
-    console.log(props.education);
+    // console.log(props.education);
   };
 
   return (
