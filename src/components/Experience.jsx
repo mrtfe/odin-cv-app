@@ -28,6 +28,7 @@ export function Experience(props) {
     e.preventDefault();
     const id = randomIdGenerator();
     props.setExperience([...props.experience, { ...state, id }]);
+    setState(expState);
   };
 
   return (
@@ -39,6 +40,8 @@ export function Experience(props) {
             name="companyName"
             placeholder="Company name"
             type="text"
+            required
+            value={state.companyName}
             onChange={handleChange}
           ></input>
         </div>
@@ -47,14 +50,18 @@ export function Experience(props) {
             name="positionTitle"
             placeholder="Position title"
             type="text"
+            required
+            value={state.positionTitle}
             onChange={handleChange}
           ></input>
         </div>
         <div>
           <input
             name="tasks"
-            placeholder="Main tasks of your jobs"
+            placeholder="Main tasks"
             type="text"
+            required
+            value={state.tasks}
             onChange={handleChange}
           ></input>
         </div>
@@ -63,6 +70,8 @@ export function Experience(props) {
             name="from"
             placeholder="From"
             type="text"
+            required
+            value={state.from}
             onChange={handleChange}
           ></input>
         </div>
@@ -71,6 +80,8 @@ export function Experience(props) {
             name="to"
             placeholder="To"
             type="text"
+            required
+            value={state.to}
             onChange={handleChange}
           ></input>
         </div>

@@ -29,10 +29,6 @@ export function Education(props) {
     setState(educationState);
   };
 
-  const clearInputs = (e) => {
-    setState(educationState);
-  };
-
   return (
     <>
       <form onSubmit={handleSubmit}>
@@ -40,32 +36,40 @@ export function Education(props) {
         <div>
           <input
             name="schoolName"
+            required
             placeholder="School name"
             type="text"
+            value={state.schoolName}
             onChange={handleChange}
           ></input>
         </div>
         <div>
           <input
             name="studyName"
+            required
             placeholder="Title of study"
             type="text"
+            value={state.studyName}
             onChange={handleChange}
           ></input>
         </div>
         <div>
           <input
             name="dateFrom"
+            required
             placeholder="Date of study / From"
             type="text"
+            value={state.dateFrom}
             onChange={handleChange}
           ></input>
         </div>
         <div>
           <input
             name="dateTo"
+            required
             placeholder="Date of study / To"
             type="text"
+            value={state.dateTo}
             onChange={handleChange}
           ></input>
         </div>
