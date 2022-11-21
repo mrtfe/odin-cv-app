@@ -5,6 +5,9 @@ export function Example(props) {
   const handleEducationDelete = (e) => {
     props.setEducation(props.education.filter((item) => item.id !== e.id));
   };
+  const handleExpDelete = (e) => {
+    props.setExperience(props.experience.filter((item) => item.id !== e.id));
+  };
 
   return (
     <div className="example-wrapper">
@@ -48,12 +51,12 @@ export function Example(props) {
 
       <div className="experience container ">
         {props.experience.length > 0 && <h3>Experience</h3>}
-        {props.experience.map((expItem, index) => (
-          <div className="experience-card card">
+        {props.experience.map((expItem) => (
+          <div key={expItem.id} className="experience-card card">
             <div className="experience-label label">
               Company name: {expItem.studyName}
             </div>
-            <div className="experience-info info" key={index}>
+            <div className="experience-info info">
               <p>{expItem.companyName} |</p>
               <p>{expItem.positionTitle} |</p>
               <p>{expItem.tasks} |</p>
@@ -62,7 +65,7 @@ export function Example(props) {
 
               <button
                 className="del-btn"
-                onClick={() => console.log("hello world")}
+                onClick={() => handleExpDelete(expItem)}
               >
                 Delete
               </button>

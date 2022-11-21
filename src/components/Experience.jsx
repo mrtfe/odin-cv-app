@@ -2,16 +2,20 @@ import React, { useState } from "react";
 import "../styles/formStyle.css";
 
 export function Experience(props) {
-  const expState = [
-    {
-      companyName: "",
-      positionTitle: "",
-      tasks: " ",
-      from: "",
-      to: "",
-    },
-  ];
+  const expState = {
+    id: "",
+    companyName: "",
+    positionTitle: "",
+    tasks: " ",
+    from: "",
+    to: "",
+  };
+
   const [state, setState] = useState(expState);
+
+  const randomIdGenerator = () => {
+    return Math.floor(Math.random() * 100000);
+  };
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -22,8 +26,8 @@ export function Experience(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("experience form submitted");
-    props.setExperience([...props.experience, state]);
+    const id = randomIdGenerator();
+    props.setExperience([...props.experience, { ...state, id }]);
   };
 
   return (
