@@ -3,7 +3,7 @@ import "../styles/exampleStyle.css";
 
 export function Example(props) {
   const handleDelete = (eduItem) => {
-    console.log(eduItem);
+    console.log(eduItem.id);
   };
   return (
     <div className="example-wrapper">
@@ -25,7 +25,7 @@ export function Example(props) {
 
       <div className="education container ">
         {props.education.length > 0 && <h3>Education</h3>}
-        {props.education.map((eduItem, index) => (
+        {props.education.map((eduItem) => (
           <div key={eduItem.id} className="education-card card">
             <div className="education-label label">
               Study name: {eduItem.studyName}
@@ -45,11 +45,11 @@ export function Example(props) {
       <div className="experience container ">
         {props.experience.length > 0 && <h3>Experience</h3>}
         {props.experience.map((expItem, index) => (
-          <div key={index} className="experience-card card">
+          <div className="experience-card card">
             <div className="experience-label label">
               Company name: {expItem.studyName}
             </div>
-            <div className="experience-info info">
+            <div className="experience-info info" key={index}>
               <p>{expItem.companyName} |</p>
               <p>{expItem.positionTitle} |</p>
               <p>{expItem.tasks} |</p>

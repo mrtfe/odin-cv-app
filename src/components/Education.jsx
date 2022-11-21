@@ -12,8 +12,8 @@ export function Education(props) {
   const [state, setState] = useState(educationState);
 
   const RandomIdGenerator = () => {
-    console.log("random id generated");
-    return Math.floor(Math.random() * 1000000000);
+    // console.log("random id generated");
+    return Math.floor(Math.random() * 100000);
   };
 
   const handleChange = (e) => {
@@ -25,6 +25,9 @@ export function Education(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    let newId = RandomIdGenerator();
+    console.log("new id:" + newId);
+    setState({ ...state, [state.id]: newId });
     props.setEducation([...props.education, state]);
     // console.log(props.education);
   };
