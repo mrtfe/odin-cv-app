@@ -3,7 +3,7 @@ import "../styles/formStyle.css";
 
 export function Education(props) {
   const educationState = {
-    id: "",
+    // id: "",
     schoolName: "",
     studyName: "",
     dateFrom: "",
@@ -26,6 +26,11 @@ export function Education(props) {
     e.preventDefault();
     const id = randomIdGenerator();
     props.setEducation([...props.education, { ...state, id }]);
+    setState(educationState);
+  };
+
+  const clearInputs = (e) => {
+    setState(educationState);
   };
 
   return (
