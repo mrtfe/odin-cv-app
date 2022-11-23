@@ -17,6 +17,8 @@ function App() {
   const [education, setEducation] = useState([]);
   const [experience, setExperience] = useState([]);
 
+  const [editableEduState, setEditableEduState] = useState(null);
+
   return (
     <>
       <h1>CV GENERATOR</h1>
@@ -24,7 +26,12 @@ function App() {
         <div className="content-left">
           <div>
             <GeneralInformation setGeneralInfo={setGeneralInfo} />
-            <Education setEducation={setEducation} education={education} />
+            <Education
+              setEducation={setEducation}
+              education={education}
+              editableEduState={editableEduState}
+              setEditableEduState={setEditableEduState}
+            />
             <Experience setExperience={setExperience} experience={experience} />
           </div>
         </div>
@@ -35,6 +42,8 @@ function App() {
             setEducation={setEducation}
             experience={experience}
             setExperience={setExperience}
+            editableEduState={editableEduState}
+            setEditableEduState={setEditableEduState}
           />
         </div>
       </div>
