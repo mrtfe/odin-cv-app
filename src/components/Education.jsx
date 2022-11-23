@@ -1,15 +1,26 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
 import "../styles/formStyle.css";
 
 export function Education(props) {
   const educationState = {
-    // id: "",
     schoolName: "",
     studyName: "",
     dateFrom: "",
     dateTo: "",
   };
+
   const [state, setState] = useState(educationState);
+
+  useEffect(() => {
+    const editingData = props.education.find(
+      (item) => item.id === props.editableEduState
+    );
+    if (!editingData) {
+      return;
+    }
+    setState(editingData);
+  }, [props.editableEduState, props.education]);
 
   const randomIdGenerator = () => {
     return Math.floor(Math.random() * 100000);
@@ -24,9 +35,15 @@ export function Education(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const id = randomIdGenerator();
-    props.setEducation([...props.education, { ...state, id }]);
-    setState(educationState);
+    if (props.editableEduState) {
+      props.setEducation([state]);
+      props.setEditableEduState(null);
+      setState(educationState);
+    } else {
+      const id = randomIdGenerator();
+      props.setEducation([...props.education, { ...state, id }]);
+      setState(educationState);
+    }
   };
 
   return (

@@ -9,6 +9,11 @@ export function Example(props) {
     props.setExperience(props.experience.filter((item) => item.id !== e.id));
   };
 
+  const handleEducationEdit = (e) => {
+    const selectedItem = props.education.find((item) => item.id === e.id);
+    props.setEditableEduState(selectedItem.id);
+  };
+
   return (
     <div className="example-wrapper">
       <div className="general-info">
@@ -44,6 +49,12 @@ export function Example(props) {
               >
                 Delete
               </button>
+              <button
+                className="edit-btn"
+                onClick={() => handleEducationEdit(eduItem)}
+              >
+                Edit
+              </button>
             </div>
           </div>
         ))}
@@ -68,6 +79,9 @@ export function Example(props) {
                 onClick={() => handleExpDelete(expItem)}
               >
                 Delete
+              </button>
+              <button className="edit-btn" onClick={() => handleEducationEdit}>
+                Edit
               </button>
             </div>
           </div>
